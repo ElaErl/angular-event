@@ -1,6 +1,22 @@
 
-     <p *ngFor='let key of productkeys'>
-        {{key}}  | {{product[key]}}
-        <!-- + product.productCode | lowercase + product.releaseDate + product.price | currency: 'USD' + product.starRating}} -->
-     </p>
+
+
+     <div mwlDraggable dropData="foo" dragActiveClass="drag-active">
+
+     <div *ngFor='let key of productkeys'>
+        <h4>{{key | uppercase}}</h4>
+        <p>{{product[key]}}</p>
+     </div>
+     </div>
+
+
+     <div
+        mwlDroppable
+        (drop)="onDrop($event)"
+        dragOverClass="drop-over-active">
+    </div>
+
+     
+     
+
     

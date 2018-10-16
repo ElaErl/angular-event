@@ -27,6 +27,7 @@ import { ProductsComponent } from './products/products.component';
 import {ProductsService} from './products/products.service';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {ProductDetailService} from './product-detail/product-detail.service';
+import { DragAndDropModule } from 'angular-draggable-droppable';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {ProductDetailService} from './product-detail/product-detail.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    DragAndDropModule,
   ],
   providers: [ProductsService,
     ProductDetailService],
