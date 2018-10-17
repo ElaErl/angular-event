@@ -13,6 +13,6 @@ export class ProductDetailService {
     constructor (private http: HttpClient) {}
 
     public getMyProductData(): Observable<JSON[]> {
-         return this.http.get(this.baseUrl).pipe(
-         map((res: Response) => res));
+        return this.http.get(this.baseUrl).pipe(
+        map((res: Response) => res));
     }

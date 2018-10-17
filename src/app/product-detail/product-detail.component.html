@@ -1,21 +1,21 @@
 
 
-
-     <div mwlDraggable dropData="foo" dragActiveClass="drag-active">
+<div id="speladragdrop">
+     <!-- <div mwlDraggable dropData="foo" dragActiveClass="drag-active"> -->
 
      <div *ngFor='let key of productkeys'>
-        <h4>{{key | uppercase}}</h4>
+        <h4>{{splitKey(key) | uppercase}}</h4>
         <p>{{product[key]}}</p>
      </div>
      </div>
 
 
-     <div
+    <!-- <div
         mwlDroppable
         (drop)="onDrop($event)"
         dragOverClass="drop-over-active">
-    </div>
-
+    </div>  -->
+<!-- </div> -->
      
      
 

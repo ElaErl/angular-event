@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductDetailService} from './product-detail.service';
 import {ProductsService} from '../products/products.service';
-import { $ } from 'jquery';
+//import { $ } from 'jquery';
 import { DropEvent } from 'angular-draggable-droppable';
 
 
@@ -13,39 +13,41 @@ import { DropEvent } from 'angular-draggable-droppable';
 export class ProductDetailComponent implements OnInit {
   showDetails: boolean = false;
   product: any;
-  productkeys:[];
-
-
-
-
-  constructor(private myProductDetailService:ProductDetailService , private productsService:ProductsService) { 
-   }
+  productkeys: [];
   
-  droppedData: string = '';
+  
+   splitKey(key) {
+     return key.split(/(.*[a-z])(?=[A-Z])/).join(' ');
+   };
 
-  onDrop({ dropData }: DropEvent<string>): void {
-    this.droppedData = dropData;
-  //  setTimeout(() => {
-  //     this.droppedData = '';
-  //   }, 2000);
-  }
 
+  constructor(private myProductDetailService:ProductDetailService , private productsService:ProductsService) {
+   }
+  // droppedData: string = '';
+
+  // onDrop({ dropData }: DropEvent<string>): void {
+  //   this.droppedData = dropData;
+  // //  setTimeout(() => {
+  // //     this.droppedData = '';
+  // //   }, 2000);
+  // }
 
      ngOnInit(): void {
-         this.productsService.getProductDetailEventEmmiter().subscribe(detail=>{
-            this.productkeys = Object.keys(detail);
-            this.product = detail;
-            console.log("from detail:");
-            console.log(detail);
-            console.log(this.productkeys);
+          this.productsService.getProductDetailEventEmmiter().subscribe(detail=>{
+           this.productkeys = Object.keys(detail);
+           this.product = detail;
+          //  console.log("from detail:");
+          //  console.log(detail);
+          //  console.log(this.productkeys);
          });
 
-
+         $( function() {
+          $( "#speladragdrop" ).draggable();
+        } );
   }
 
     toggleDetails(): void {
         this.showDetails = !this.showDetails;
     };
-
 
   }

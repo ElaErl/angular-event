@@ -1,4 +1,6 @@
-#draggable, h4, p {
-    padding: 0;
-    margin: 0,
+#speladragdrop { 
+    background-color: lightsteelblue;
+    width: 30%;
+    padding: 30px;
+    text-align: center;
 }
